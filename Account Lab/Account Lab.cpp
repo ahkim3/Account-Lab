@@ -45,7 +45,7 @@ int main()
         cout << "Attempting to withdraw $1.51..." << endl;
         basicAccount.debit(1.51);
         cout << "Current Basic Account Balance (USD): " 
-            << basicAccount.getBalance() << endl << endl << endl;
+            << basicAccount.getBalance() << endl << endl << endl << endl;
     }
 
     // Savings Account
@@ -74,7 +74,30 @@ int main()
         savingsAccount.credit(savingsAccount.calculateInterest());
         cout << "Current Savings Account Balance (USD) after one period of "
             << "interest: " << savingsAccount.getBalance() << endl << endl 
-            << endl;
+            << endl << endl;
     }
 
+    // Checking Account
+    {
+        // Following works nearly identical to a Basic Account, but applies a
+        // fee after each successful transaction
+        CheckingAccount checkingAccount(5.12, 0.02); // 2 cent fee
+        cout << "Checking Account Balance (USD): "
+            << checkingAccount.getBalance() << endl;
+
+        checkingAccount.credit(1.27);
+        cout << endl
+            << "Deposited $1.27.\nCurrent Checking Account Balance (USD): "
+            << checkingAccount.getBalance() << endl << endl;
+
+        cout << "Attempting to withdraw $8.07..." << endl;
+        checkingAccount.debit(8.07);
+        cout << "Current Checking Account Balance (USD): "
+            << checkingAccount.getBalance() << endl << endl;
+
+        cout << "Attempting to withdraw $1.51..." << endl;
+        checkingAccount.debit(1.51);
+        cout << "Current Checking Account Balance (USD): "
+            << checkingAccount.getBalance() << endl << endl;
+    }
 }
