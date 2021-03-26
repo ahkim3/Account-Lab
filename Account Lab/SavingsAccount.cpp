@@ -8,11 +8,10 @@ using namespace std;
 // initial balance to ensure it's >= 0.0
 SavingsAccount::SavingsAccount(double initialBalance, double initialInterest)
 {
+	interestRate = initialInterest;
+
 	if (initialBalance >= 0.0) // Valid
-	{
 		balance = initialBalance;
-		interestRate = initialInterest;
-	}
 	else // Invalid; set balance to 0.0
 	{
 		balance = 0.0;
@@ -30,6 +29,6 @@ SavingsAccount::~SavingsAccount()
 // Determines the amount of interest earned
 double SavingsAccount::calculateInterest()
 {
-	// Multiplies interest rate by account balance
-	return (interestRate * balance);
+	// Multiplies interest rate (converted to decimal) by account balance
+	return ((interestRate / 100) * balance);
 }
