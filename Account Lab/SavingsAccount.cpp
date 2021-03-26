@@ -8,6 +8,12 @@ SavingsAccount::SavingsAccount(double initialBalance, double initialInterest)
 }
 
 
+// Default destructor
+SavingsAccount::~SavingsAccount()
+{
+}
+
+
 // Determines the amount of interest earned
 double SavingsAccount::calculateInterest()
 {
