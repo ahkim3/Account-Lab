@@ -50,7 +50,7 @@ bool Account::debit(double amount)
 	}
 	else // Insufficient funds; withdrawal failed
 	{
-		cout << "Debit amount exceeded account balance" << endl;
+		cout << "Debit amount exceeded account balance." << endl;
 		return false;
 	}
 
